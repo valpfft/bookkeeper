@@ -1,9 +1,20 @@
+<%# place for nav. links %>
 <% if user_signed_in? %>
-  <% if current_user.admin? %>
-    <li class="nav-link"><%= link_to "Users", users_path %></li>
-  <% end %>
-  <li class="nav-link"><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+  <li class="dropdown">
+    <a class="dropdown-toggle btn btn-lg" data-toggle="dropdown" href="#">
+      <%= current_user.name %>
+      <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu" role="menu">
+      <% if current_user.admin? %>
+        <li><%= link_to "Users", users_path, class: 'btn btn-lg' %></li>
+      <% end %>
+      <li><%= link_to 'Profile', edit_user_registration_path, class: 'btn btn-lg' %></li>
+      <li role="separator" class="divider"></li>
+      <li><%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'btn btn-lg' %></li>
+    </ul>
+  </li>
 <% else %>
-  <li class="nav-link"><%= link_to "Sign In", new_user_session_path %></li>
-  <li class="nav-link"><%= link_to "Register", new_user_registration_path %></li>
+  <li><%= link_to 'Log In', new_user_session_path, class: 'btn btn-lg' %></li>
+  <li><%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-lg' %></li>
 <% end %>

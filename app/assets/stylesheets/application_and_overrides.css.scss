@@ -1,3 +1,49 @@
 // import CSS framework
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+/* all image responsive by default */
+img {
+    @extend .img-responsive;
+    margin: 0 auto;
+}
+/* 'Home' nav. link */
+main {
+    @extend .container;
+    padding-bottom: 80px;
+    width: 100%;
+    margin-top: 60px;
+    }
+
+section {
+    @extend .row;
+    margin-top: 20px;
+}
+
+.authform {
+    padding-top: 30px;
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+.authform .right {
+    float: right !important;
+}
+
+.authform .button {
+    @extend .btn;
+    @extend .btn-primary;
+}
+
+.authform fieldset {
+    @extend .well;
+}
+#error_explanation {
+    @extend .alert;
+    @extend .alert-danger;
+}
+.button-xs {
+    @extend .btn;
+    @extend .btn-primary;
+    @extend .btn-xs;
+}
