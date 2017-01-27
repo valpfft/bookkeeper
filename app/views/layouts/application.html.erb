@@ -2,13 +2,19 @@
 <html>
   <head>
     <title>Bookkeeper</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= content_for?(:title) ? yield(:title) : "Bookkeeper" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Bookkeeper" %>" />
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'true' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'true' %>
   </head>
 
   <body>
+    <header>
+      <%= render "layouts/header" %>
+    </header>
     <main role="main">
       <div class="container">
         <%= render "layouts/messages" %>

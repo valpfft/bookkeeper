@@ -1,0 +1,10 @@
+<tr id="<%= user.id %>">
+  <td>
+    <%= link_to icon('pencil', class: 'strong' ), edit_user_registration_path(user) %>
+    <%= link_to(icon('trash', class: 'strong'), user_path(user), :data => { :confirm => "Are you sure?" },
+                :method => :delete, :class => 'button') unless user == current_user %>
+  </td>
+  <td><%= user.name %></td>
+  <td><%= user.email %></td>
+  <td><%= user.updated_at %></td>
+</tr>
