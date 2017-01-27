@@ -15,6 +15,9 @@ gem "sass-rails", "~> 5.0"
 gem "simple_form", "~> 3.4"
 gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
+# auth and role
+gem "devise", "~> 4.2"
+gem "pundit", "~> 1.1"
 
 # design
 gem "bootstrap-sass", "~> 3.3", ">= 3.3.7"
