@@ -5,6 +5,18 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     authorize User
+    @users_grid = UsersGrid.new(params[:users_grid])
+    respond_to do |f|
+      f.html do
+        @users_grid.scope { |scope| scope.page(params[:page]).per(15) }
+      end
+      f.csv do
+        send_data @users_grid.to_csv,
+        type: "text/csv",
+        disposition: "inline",
+        filename: "bookkeeper-users-#{Time.now}.csv"
+      end
+    end
   end
 
   def show

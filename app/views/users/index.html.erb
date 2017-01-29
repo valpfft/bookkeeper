@@ -1,14 +1,14 @@
 <h3>Listing users</h3>
-<table class="table table-bordered table-striped table-condensed table-hover">
-  <thead>
-    <tr>
-      <th><span class="glyphicon glyphicon-cog"></span></th>
-      <th>Name</th>
-      <th>Email address</th>
-      <th>Updated</th>
-    </tr>
-  </thead>
-  <tbody id="users">
-    <%= render @users  %>
-  </tbody>
-</table>
+
+<div class="container">
+  <div class="row">
+  <%= datagrid_form_for @users_grid, url: users_path %>
+  </div>
+
+  <div class="row">
+  <table class="table table-bordered table-striped table-hover"
+         <%= datagrid_table(@users_grid) %>
+  </table>
+  <%= paginate @users_grid.assets %>
+  </div>
+</div>

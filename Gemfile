@@ -18,10 +18,15 @@ gem "uglifier", ">= 1.3.0"
 # auth and role
 gem "devise", "~> 4.2"
 gem "pundit", "~> 1.1"
+# data processing
+gem "datagrid", "~> 1.5", ">= 1.5.1"
 
 # design
 gem "bootstrap-sass", "~> 3.3", ">= 3.3.7"
+gem "bootstrap3-datetimepicker-rails", "~> 4.17.43"
 gem "font-awesome-sass", "~> 4.7.0"
+gem "kaminari"
+gem "momentjs-rails", ">= 2.9.0"
 
 group :development, :test do
   gem "byebug", platform: :mri

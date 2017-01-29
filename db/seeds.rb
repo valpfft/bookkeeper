@@ -7,7 +7,7 @@ User.create!(
 )
 
 # and users
-10.times do
+100.times do
   name = Faker::Name.unique.name
   User.create!(
     name: name,
