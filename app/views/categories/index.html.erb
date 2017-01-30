@@ -1,0 +1,14 @@
+<h1>Categories</h1>
+
+<%= simple_form_for @new_category do |f| %>
+  <div>
+    <%= f.input :name, autofocus: true, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= f.submit "Add category" %>
+  </div>
+<% end %>
+
+<br>
+<%= render @categories %>
