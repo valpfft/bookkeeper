@@ -1,12 +1,10 @@
-<h1>Categories</h1>
-
 <%= simple_form_for @new_category do |f| %>
-  <div>
-    <%= f.input :name, autofocus: true, class: "form-control" %>
+  <div class="form-inputs">
+    <%= f.input :name, autofocus: true, class: "form-control", label: false, placeholder: "Category name" %>
   </div>
 
-  <div>
-    <%= f.submit "Add category" %>
+  <div class="form-actions">
+    <%= f.submit "Add category", class: "btn btn-submit" %>
   </div>
 <% end %>
 

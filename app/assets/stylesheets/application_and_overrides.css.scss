@@ -16,6 +16,15 @@ main {
     margin-top: 60px;
     }
 
+.navbar-brand {
+    font-size: 20px;
+    font-weight: bold;
+    position: absolute;
+    width: 100%;
+    margin: auto;
+    margin-left: 0 !important;
+    }
+
 section {
     @extend .row;
     margin-top: 20px;
@@ -47,4 +56,76 @@ section {
     @extend .btn;
     @extend .btn-primary;
     @extend .btn-xs;
+}
+
+Datagrid
+.order {
+    display: inline-block;
+}
+
+td.control {
+    width: 100px;
+    text-align: center;
+}
+
+.total {
+    margin: 20px;
+}
+
+.datagrid-actions {
+    padding-right: 10px;
+}
+
+.datepicker-wrapper {
+    position: relative;
+}
+
+.datagrid-form {
+    padding: 15px;
+    background: #fbfbfd;
+    border: none;
+    -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+    -moz-box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+}
+
+.control-btn {
+    margin-left: 15px;
+}
+
+/*  Sidebar */
+
+.list-group{
+    margin-top: 40px;
+    .list-group-item {
+        border-bottom-right-radius: 8px;
+        border-bottom-left-radius: 20px;
+    }
+}
+
+a.hide-filters, a.show-filters{
+    color: white;
+    text-decoration: underline;
+    }
+
+.datagrid-form {
+    backgroun-color: white;
+    padding: 0;
+}
+
+.page-header {
+    margin-top: 0;
+    a.btn {
+        float: right;
+    }
+
+    a.btn + a.btn {
+        margin-right: 0;
+    }
+}
+
+.section {
+    .col-md-10 {
+        margin-top: 40px;
+    }
 }

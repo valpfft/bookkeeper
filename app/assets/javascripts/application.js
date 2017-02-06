@@ -14,5 +14,23 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require moment
 //= require bootstrap-datetimepicker
 //= require_tree .
+
+function hideFilters(){
+  $('.hide-filters').hide();
+  $('.show-filters').show();
+  $('.panel-body').hide();
+}
+
+function showFilters(){
+  $('.hide-filters').show();
+  $('.show-filters').hide();
+  $('.panel-body').show();
+}
+
+// $(".list-group a.list-group-item").click(function () {
+//   $('.list-group > .active').removeClass('active');
+//   $(this).addClass('active');
+// });

@@ -6,7 +6,6 @@
     <title><%= content_for?(:title) ? yield(:title) : "Bookkeeper" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Bookkeeper" %>" />
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'true' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'true' %>
   </head>
@@ -16,9 +15,16 @@
       <%= render "layouts/header" %>
     </header>
     <main role="main">
-      <div class="container">
-        <%= render "layouts/messages" %>
-        <%= yield %>
+      <div class="section">
+        <div class="col-md-1">
+          <% if current_user %>
+            <%= render "layouts/sidebar" %>
+          <% end %>
+        </div>
+        <div class="col-md-10">
+          <%= render "layouts/messages" %>
+          <%= yield %>
+        </div>
       </div>
     </main>
   </body>

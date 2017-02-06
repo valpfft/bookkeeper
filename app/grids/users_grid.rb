@@ -5,9 +5,11 @@ class UsersGrid
     User
   end
 
+  filter(:id, :integer)
   filter(:email, :string)
   filter(:name, :string)
-  filter(:id, :integer)
+  filter(:updated_at, :date, range: true)
+  filter(:registred_at, :date, range: true)
 
   column(:id)
   column(:email)

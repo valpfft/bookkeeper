@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @users_grid = UsersGrid.new(params[:users_grid])
     respond_to do |f|
       f.html do
-        @users_grid.scope { |scope| scope.page(params[:page]).per(15) }
+        @users_grid.scope { |scope| scope.page(params[:page]) }
       end
       f.csv do
         send_data @users_grid.to_csv,

@@ -1,15 +1,33 @@
-<%= form_for grid, options do |f| -%>
+<%= form_for grid, options do |f| %> <% form_horizontal = options[:html] && options[:html][:class] && options[:html][:class].include?("form-horizontal") %>
   <% grid.filters.each do |filter| %>
-    <div class="datagrid-filter filter">
-      <%= f.datagrid_label filter %>
-      <%= f.datagrid_filter filter, partials: options[:partials] %>
+    <div class="form-group">
+      <% if form_horizontal %>
+        <%= f.datagrid_label filter, class: "control-label col-md-3" %>
+        <div class="col-md-4">
+          <%= f.datagrid_filter filter, class: "form-control", style: "display: inline-block;" %>
+        </div>
+      <% else  %>
+        <div class="row">
+          <div class="col-md-4 form-inline">
+            <%= f.datagrid_label filter, class: "control-label" %>
+            <%= f.datagrid_filter filter, class: "form-control" %>
+          </div>
+        </div>
+      <% end %>
     </div>
   <% end %>
-  <div class="form-group">
-    <%= f.submit I18n.t("datagrid.form.search").html_safe, :class => "btn btn-success" %>
-    <%# https://github.com/rails/rails/pull/14949 -%>
-    <% empty_parameter = Rails.version >= "4.1.0" && Rails.version <= '4.1.2' ? nil : {}-%>
-    <%= link_to I18n.t('datagrid.form.reset').html_safe, url_for(grid.to_param => empty_parameter), :class => "btn btn-white" %>
-    <%= link_to "Export CSV", url_for(format: 'csv', users_grid: params[:users_grid]), class: "btn btn-info" %>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-actions text-center" style="margin-top: 10px">
+        <%= f.submit I18n.t("datagrid.form.submit", :default => "Search").html_safe, class: "btn btn-primary btn-sm" %>
+        <% if options[:clear_url] %>
+          <%= link_to t("datagrid.form.clear", default: "Clear").html_safe, options[:clear_url], class: "btn btn-default btn-sm" %>
+        <% end %>
+      </div>
+    </div>
   </div>
-<% end -%>
+<% end %>
+
+<script>
+ $('.date_filter').datetimepicker();
+</script>

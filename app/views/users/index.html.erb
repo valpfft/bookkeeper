@@ -1,14 +1,24 @@
-<h3>Listing users</h3>
+<div class="page-header">
+  <%= link_to url_for(format: :csv, params: params), class: "btn btn-default" do %>
+    <span class="glyphicon glyphicon-export"></span>
+    Export to CSV
+  <% end %>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <%= link_to "Hide filters", "javascript:hideFilters()", class: "hide-filters", title: "Click to hide filters", style: "display: none;" %>
+      <%= link_to "Show filters", "javascript:showFilters()", class: "show-filters", title: "Click to show filters" %>
+    </div>
 
-<div class="container">
-  <div class="row">
-  <%= datagrid_form_for @users_grid, url: users_path %>
+    <div class="panel-body" style="display: none;">
+      <%= datagrid_form_for @users_grid, url: users_path %>
+    </div>
+
+    <div class="table-responsive">
+      <%= datagrid_table(@users_grid, html:{ class: "table table-striped table-bordered table-hover"} )%>
+    </div>
+    <div class="text-center">
+      <%= paginate @users_grid.assets, theme: "twitter-bootstrap-3", pagination_class: "pagination-sm" %>
+    </div>
   </div>
-
-  <div class="row">
-  <table class="table table-bordered table-striped table-hover"
-         <%= datagrid_table(@users_grid) %>
-  </table>
-  <%= paginate @users_grid.assets %>
   </div>
 </div>
