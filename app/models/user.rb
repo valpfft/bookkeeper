@@ -2,6 +2,7 @@ class User < ApplicationRecord
   attr_accessor :user_id
 
   has_many :categories
+  has_many :spendings, -> { order(created_at: :desc) }
 
   enum role: [:user, :admin]
 

@@ -34,3 +34,10 @@ function showFilters(){
 //   $('.list-group > .active').removeClass('active');
 //   $(this).addClass('active');
 // });
+
+
+$(document).ready(function() {
+  $('[data-toggle=offcanvas]').click(function() {
+    $('.row-offcanvas').toggleClass('active');
+  });
+});

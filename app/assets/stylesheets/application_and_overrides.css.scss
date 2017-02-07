@@ -9,49 +9,15 @@ img {
     margin: 0 auto;
 }
 /* 'Home' nav. link */
-main {
-    @extend .container;
-    padding-bottom: 80px;
-    width: 100%;
-    margin-top: 60px;
-    }
 
 .navbar-brand {
     font-size: 20px;
     font-weight: bold;
     position: absolute;
-    width: 100%;
     margin: auto;
     margin-left: 0 !important;
     }
 
-section {
-    @extend .row;
-    margin-top: 20px;
-}
-
-.authform {
-    padding-top: 30px;
-    max-width: 320px;
-    margin: 0 auto;
-}
-
-.authform .right {
-    float: right !important;
-}
-
-.authform .button {
-    @extend .btn;
-    @extend .btn-primary;
-}
-
-.authform fieldset {
-    @extend .well;
-}
-#error_explanation {
-    @extend .alert;
-    @extend .alert-danger;
-}
 .button-xs {
     @extend .btn;
     @extend .btn-primary;
@@ -59,8 +25,22 @@ section {
 }
 
 Datagrid
-.order {
-    display: inline-block;
+table.datagrid {
+    background-color: white;
+    border-collapse: inherit;
+    max-width: 100%;
+    border-spacing: 3px;
+}
+
+table.datagrid th {
+    background-color: transparent;
+    text-align: left;
+    white-space: nowrap;
+
+    div.order {
+        display: inline;
+        color: #888;
+    }
 }
 
 td.control {
@@ -93,16 +73,6 @@ td.control {
     margin-left: 15px;
 }
 
-/*  Sidebar */
-
-.list-group{
-    margin-top: 40px;
-    .list-group-item {
-        border-bottom-right-radius: 8px;
-        border-bottom-left-radius: 20px;
-    }
-}
-
 a.hide-filters, a.show-filters{
     color: white;
     text-decoration: underline;
@@ -124,8 +94,72 @@ a.hide-filters, a.show-filters{
     }
 }
 
-.section {
-    .col-md-10 {
-        margin-top: 40px;
+/*  Sidebar */
+
+.list-group{
+    .list-group-item {
+        border-bottom-right-radius: 8px;
+        border-bottom-left-radius: 20px;
     }
 }
+
+
+/*
+ * Off Canvas
+ * --------------------------------------------------
+ */
+
+@media screen and (max-width: 768px) {
+    .row-offcanvas {
+        position: relative;
+        -webkit-transition: all 0.25s ease-out;
+        -moz-transition: all 0.25s ease-out;
+        transition: all 0.25s ease-out;
+        width: calc(100% + 160px);
+    }
+
+    .row-offcanvas-left
+    {
+        left: -160px;
+    }
+
+    .row-offcanvas-left.active {
+        left: 0;
+    }
+
+    .sidebar-offcanvas {
+        position: absolute;
+        top: 0;
+    }
+    }
+
+#sidebar {
+    width: inherit;
+    min-width: 160px;
+    max-width: 160px;
+    float: left;
+    height: 100%;
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+    }
+
+body, html, .row-offcanvas {
+    height: 100%;
+    padding-top: 30px;
+}
+
+#main {
+    height: 100%;
+    overflow: auto;
+}
+
+// Devise styles
+.panel-boundary {
+    border: 0.2rem solid #f7f7f9;
+    border-radius: 4px;
+    padding: 1.5rem;
+    margin-left: 0;
+    margin-right: 0;
+    background-color: #f7f7f9;
+    }
