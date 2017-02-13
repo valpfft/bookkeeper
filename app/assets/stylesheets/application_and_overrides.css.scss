@@ -1,7 +1,7 @@
 // import CSS framework
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "bootstrap-datetimepicker";
+@import "bootstrap-datepicker3";
 
 /* all image responsive by default */
 img {
@@ -24,64 +24,19 @@ img {
     @extend .btn-xs;
 }
 
-Datagrid
-table.datagrid {
-    background-color: white;
-    border-collapse: inherit;
-    max-width: 100%;
-    border-spacing: 3px;
-}
-
-table.datagrid th {
-    background-color: transparent;
-    text-align: left;
-    white-space: nowrap;
-
-    div.order {
-        display: inline;
-        color: #888;
-    }
-}
-
-td.control {
-    width: 100px;
-    text-align: center;
-}
-
-.total {
-    margin: 20px;
+/* Datagrid */
+.datagrid-form {
+    background-color: transparent !important;
 }
 
 .datagrid-actions {
-    padding-right: 10px;
-}
-
-.datepicker-wrapper {
-    position: relative;
-}
-
-.datagrid-form {
-    padding: 15px;
-    background: #fbfbfd;
-    border: none;
-    -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
-    -moz-box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
-    box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
-}
-
-.control-btn {
-    margin-left: 15px;
-}
+    padding-left: 10px;
+    }
 
 a.hide-filters, a.show-filters{
     color: white;
     text-decoration: underline;
     }
-
-.datagrid-form {
-    backgroun-color: white;
-    padding: 0;
-}
 
 .page-header {
     margin-top: 0;
@@ -93,6 +48,82 @@ a.hide-filters, a.show-filters{
         margin-right: 0;
     }
 }
+
+.order {
+    display: inline;
+
+    a {
+        color: lighten($link-color, 15%);
+        &:hover {
+            color: $link-hover-color;
+        }
+
+        &.selected {
+            color: $link-color;
+            &:hover {
+                color: $link-hover-color;
+            }
+        }
+    }
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.panel {
+    .panel-title {
+        a {
+            color: $link-color !important;
+            margin: 0px 8px 0px 4px;
+        }
+    }
+
+    legend {
+        font-size: 1em;
+        font-weight: bold;
+    }
+
+    .filter-col {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    border: none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    margin-bottom: 5px;
+    margin-left: 0;
+}
+
+legend {
+    margin-top: 10px;
+}
+
+abbr {
+    text-decoration: none;
+    border: none !important;
+}
+
+label.checkbox input[type=checkbox] {
+    display: inline-block;
+    padding-right: 10px;
+}
+
+.inactive {
+    color: $gray-light;
+}
+
+.pagination {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+table.datagrid {
+    width: 100%;
+    margin-top: 20px;
+}
+
 
 /*  Sidebar */
 

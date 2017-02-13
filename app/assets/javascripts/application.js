@@ -15,7 +15,7 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require moment
-//= require bootstrap-datetimepicker
+//= require bootstrap-datepicker
 //= require_tree .
 
 function hideFilters(){
@@ -40,4 +40,8 @@ $(document).ready(function() {
   $('[data-toggle=offcanvas]').click(function() {
     $('.row-offcanvas').toggleClass('active');
   });
+});
+
+$(document).ready(function(){
+  $('.datepicker').datepicker();
 });

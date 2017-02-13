@@ -1,0 +1,11 @@
+<%= simple_form_for UsersGrid.new, method: :get, url: users_path, html: { class: "form-inline" }, as: "users_grid", wrapper: :inline_form do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :id, label: false, placeholder: "Enter id", input_html: { size: 5 } %>
+  <%= f.input :email, label: false, placeholder: "Enter email", input_html: { size: 25 } %>
+  <%= f.input :name, label: false, placeholder: "Enter name", input_html: { size: 25 }  %>
+  <%= f.datagrid_filter :created_at, placeholder: "Creation date", class: "form-control datepicker" %>
+  <div class="pull-right">
+    <%= f.submit I18n.t("datagrid.form.submit", :default => "Search").html_safe, class: "btn btn-primary btn-sm" %>
+    <%= f.submit I18n.t("datagrid.form.clear", default: "Clear").html_safe, class: "btn btn-default btn-sm" %>
+  </div>
+<% end %>

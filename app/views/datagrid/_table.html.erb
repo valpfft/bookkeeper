@@ -1,23 +1,22 @@
-<% table = content_tag :table, options[:html] do %>
-  <thead>
-    <%= datagrid_header(grid, options) %>
-  </thead>
-  <tbody>
-    <% if assets.empty? %>
-      <tr>
-        <td class="noresults" colspan="100%">
-          <%= I18n.t 'datagrid.no_results', :default => '&mdash;&mdash;'.html_safe %>
-        </td>
-      </tr>
-    <% else %>
-      <%= datagrid_rows(grid, assets, options) %>
-    <% end %>
-  </tbody>
-<% end %>
-<% if options[:toolbar] %>
-  <%= simple_form_for :selected, url: options[:toolbar][:url] do |f| %>
-    <%= table %>
+<%#
+Local variables:
+* grid - instance of Datagrid
+* assets - Array of database Entities
+* options - passed options Hash
+%>
+<% if grid.html_columns(*options[:columns]).any? %>
+  <%= content_tag :table, options[:html] do %>
+    <thead>
+      <%= datagrid_header(grid, options) %>
+    </thead>
+    <tbody>
+      <% if assets.any? %>
+        <%= datagrid_rows(grid, assets, options) %>
+      <% else %>
+        <tr><td class="noresults" colspan="100%"><%= I18n.t('datagrid.no_results').html_safe %></td></tr>
+      <% end %>
+    </tbody>
   <% end %>
-<% else %>
-  <%= table %>
+<% else -%>
+  <%= I18n.t("datagrid.table.no_columns").html_safe %>
 <% end %>

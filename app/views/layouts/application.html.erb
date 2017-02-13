@@ -11,28 +11,28 @@
 
   <body>
     <%= render "layouts/header" %>
-<div class="row-offcanvas row-offcanvas-left">
-  <div id="sidebar" class="sidebar-offcanvas">
-    <div class="col-md-12">
-      <% if current_user  %>
-        <%= render "layouts/sidebar" %>
-      <% end %>
-    </div>
-  </div>
-
-  <div id="main">
-    <div class="col-md-11">
-      <p class="visible-xs">
-        <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas"><i class="glyphicon glyphicon-chevron-left"></i></button>
-      </p>
-      <div class="row">
-        <%= render "layouts/messages" %>
-        <%= render "layouts/sign_up_modal" %>
-        <%= render "layouts/sign_in_modal" %>
-        <%= yield %>
+    <div class="row-offcanvas row-offcanvas-left">
+      <div id="sidebar" class="sidebar-offcanvas">
+        <div class="col-md-12">
+          <% if current_user  %>
+            <%= render "layouts/sidebar" %>
+          <% end %>
+        </div>
       </div>
-    </div>
-  </div>
-</div><!-- -/row-offcanvas -->
+
+      <div id="main">
+        <div class="col-md-11">
+          <p class="visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas"><i class="glyphicon glyphicon-chevron-left"></i></button>
+          </p>
+          <div class="row">
+            <%= render "layouts/messages" %>
+            <%= render "layouts/sign_up_modal" %>
+            <%= render "layouts/sign_in_modal" %>
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div><!-- -/row-offcanvas -->
   </body>
 </html>

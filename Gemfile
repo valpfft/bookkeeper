@@ -22,9 +22,9 @@ gem "pundit", "~> 1.1"
 gem "datagrid", "~> 1.5", ">= 1.5.1"
 
 # design
+gem "bootstrap-datepicker-rails", "~> 1.6", ">= 1.6.4.1"
 gem "bootstrap-kaminari-views", "~> 0.0.5"
 gem "bootstrap-sass", "~> 3.3", ">= 3.3.7"
-gem "bootstrap3-datetimepicker-rails", "~> 4.17.43"
 gem "font-awesome-sass", "~> 4.7.0"
 gem "kaminari", "~> 1.0", ">= 1.0.1"
 gem "momentjs-rails", ">= 2.9.0"
