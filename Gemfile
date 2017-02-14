@@ -36,6 +36,7 @@ end
 
 group :development do
   gem "better_errors"
+  gem "binding_of_caller"
   gem "guard-rails"
   gem "guard-rspec"
   gem "guard-rubocop"
@@ -48,6 +49,7 @@ end
 
 group :test do
   gem "capybara"
+  gem "capybara-webkit"
   gem "database_cleaner"
   gem "factory_girl_rails"
   gem "rspec-rails"

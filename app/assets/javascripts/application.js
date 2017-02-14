@@ -45,3 +45,6 @@ $(document).ready(function() {
 $(document).ready(function(){
   $('.datepicker').datepicker();
 });
+
+$(function () {
+  $("#modal").modal({show: false})});

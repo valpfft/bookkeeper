@@ -34,3 +34,5 @@ RSpec.configure do |config|
     Warden.test_mode!
   end
 end
+
+Capybara.javascript_driver = :webkit

@@ -1,0 +1,8 @@
+<div class="jumbotron">
+  <p>
+    <%= number_to_currency(spending.amount) %> for
+    <%= spending.name %>
+    (<%= link_to spending.category.name, spending.category %>)
+    <%= spending.created_at.strftime("%d %m %Y") %>
+  </p>
+</div>

@@ -23,7 +23,7 @@ class CategoriesController < ApplicationController
   def destroy
     @category = find_category
     @category.destroy
-    flash[:notice] = "Deleted" + @category.name
+    flash[:notice] = "Deleted " + @category.name
 
     redirect_to categories_path
   end
