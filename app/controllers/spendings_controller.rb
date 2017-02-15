@@ -2,6 +2,18 @@ class SpendingsController < ApplicationController
   def index
     @new_spending = Spending.new
     @spendings = Spending.all.where(user_id: current_user.id)
+    @spendings_grid = SpendingsGrid.new(params[:spendings_grid])
+    respond_to do |f|
+      f.html do
+        @spendings_grid.scope { |scope| scope.page(params[:page]) }
+      end
+      f.csv do
+        send_data @spendings_grid.to_csv,
+        type: "text/csv",
+        disposition: "inline",
+        filename: "bookkeeper-spendings-report-#{Time.now}.csv"
+      end
+    end
   end
 
   def show
