@@ -11,30 +11,31 @@ RSpec.feature "Users can manage spendings" do
 
   scenario "user see a list of all spendings" do
     user = create(:user)
-    spending = create(:spending)
+    spending = create(:spending, user: user)
     sign_in(user.email, user.password)
 
-    visit spendings_path
+    visit "/spendings"
 
     expect(page).to have_content(spending.name)
   end
 
   scenario "user can create a new spendings" do
     user = create(:user)
-    spending = build(:spending)
+    category = create(:category, user: user)
     sign_in(user.email, user.password)
 
     visit spendings_path
-    fill_in "Name", with: spending.name
-    fill_in "Amount", with: spending.amount
-    select(spending.category.name, from: "Category")
+    fill_in "spending[name]", with: "Spending name"
+    fill_in "spending[amount]", with: 14
+    select(category.id, from: "spending[category_id]")
     click_on "Provide spending"
-    expect(page).to have_link(spending.name)
+    expect(page).to have_link("Spending name")
+    expect(page).to have_link(category.name)
   end
 
-  scenario "user can delete spendings" do
+  scenario "user can delete spendings", js: true do
     user = create(:user)
-    spending = create(:spending)
+    spending = create(:spending, user: user)
     sign_in(user.email, user.password)
 
     visit spending_path(spending)
@@ -45,7 +46,7 @@ RSpec.feature "Users can manage spendings" do
 
   scenario "user can edit spendings" do
     user = create(:user)
-    spending = create(:spending)
+    # spending = create(:spending)
     sign_in(user.email, user.password)
   end
 end

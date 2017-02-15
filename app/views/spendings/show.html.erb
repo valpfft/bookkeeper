@@ -1,2 +1,11 @@
-<h1>Spendings#show</h1>
-<p>Find me in app/views/spendings/show.html.erb</p>
+<h1>Spending: <%= @spending.name %></h1>
+
+<p>Amount: <%= number_to_currency(@spending.amount) %></p>
+<p>Paid by: <%= @spending.user_name %></p>
+<p>Category: <%= link_to @spending.category_name, @spending.category %></p>
+<p>Date: <%= @spending.created_at.strftime("%d-%m-%Y") %></p>
+
+<p>
+  <%= link_to "Edit", edit_spending_path(@spending) %> |
+  <%= link_to "Delete", spending_path(@spending), method: :delete %>
+</p>

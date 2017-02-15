@@ -6,4 +6,18 @@
   </div>
 <% end %>
 
-<%= render @spendings %>
+<br />
+
+<table class="table table-bordered" id="">
+  <thead>
+    <tr>
+      <th>Amount</th>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+  <%= render @spendings %>
+  </tbody>
+</table>

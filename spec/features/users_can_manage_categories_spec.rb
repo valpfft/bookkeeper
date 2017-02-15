@@ -38,7 +38,7 @@ RSpec.feature "Users can manage categories" do
 
   scenario "user can list all spending's in category" do
     user = create(:user)
-    spending = create(:spending)
+    spending = create(:spending, user: user)
     sign_in(user.email, user.password)
 
     visit category_path(spending.category)
