@@ -22,7 +22,7 @@ class SpendingsGrid
     spending.created_at.to_date
   end
 
-  column(:actions, header: "", html: true) do |spending|
+  column(:actions, header: "Settings", html: true) do |spending|
     link_to(icon("trash"), spending_path(spending),
             data: { confirm: "Are you sure?" },
             method: :delete, class: "btn") +
