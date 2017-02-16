@@ -47,4 +47,5 @@ $(document).ready(function(){
 });
 
 $(function () {
-  $("#modal").modal({show: false})});
+  $("#modal").modal({show: false})
+});

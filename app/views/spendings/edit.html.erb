@@ -1,2 +1,6 @@
-<h1>Spendings#edit</h1>
-<p>Find me in app/views/spendings/edit.html.erb</p>
+<h1>Edit spendings</h1>
+
+<%= simple_form_for @spending do |form| %>
+  <%= render "form", form: form %>
+  <%= form.submit "Update spending", class: "btn btn-default" %>
+<% end %>

@@ -38,7 +38,7 @@ class SpendingsController < ApplicationController
     spending = find_spending
 
     if spending.update(spending_params)
-      return flash[:alert] = "Updated!"
+      return flash[:alert] = spending.name + " Updated!"
     else
       return flash[:error] = spending.error_message
     end
