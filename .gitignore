@@ -38,3 +38,6 @@
 /log/*
 /public/system
 /tags
+/GPATH
+/GRTAGS
+/GTAGS

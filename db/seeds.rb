@@ -32,6 +32,4 @@ Category.create!(
     category_id: Category.first.id,
     user: user,
   )
-
-
 end

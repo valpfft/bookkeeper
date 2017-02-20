@@ -35,14 +35,4 @@ RSpec.feature "Users can manage categories" do
 
     expect(page).to have_content "Deleted #{category.name}"
   end
-
-  scenario "user can list all spending's in category" do
-    user = create(:user)
-    spending = create(:spending, user: user)
-    sign_in(user.email, user.password)
-
-    visit category_path(spending.category)
-
-    expect(page).to have_content spending.category.name
-  end
 end
