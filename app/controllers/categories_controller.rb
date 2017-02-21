@@ -2,12 +2,13 @@ class CategoriesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @categories = Category.all.where(user_id: current_user.id)
+    @categories = Category.all.where(user: current_user)
     @new_category = Category.new
   end
 
   def show
     @category = find_category
+    @spendings = @category.spendings
   end
 
   def create
@@ -38,6 +39,6 @@ class CategoriesController < ApplicationController
     params.
       require(:category).
       permit(:name).
-      merge(user_id: current_user.id)
+      merge(user: current_user)
   end
 end

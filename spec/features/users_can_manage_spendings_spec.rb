@@ -22,15 +22,20 @@ RSpec.feature "Users can manage spendings" do
   scenario "user can create a new spendings" do
     user = create(:user)
     category = create(:category, user: user)
+    spending = build(:spending, user: user, category: category)
     sign_in(user.email, user.password)
 
     visit spendings_path
-    fill_in "spending[name]", with: "Spending name"
-    fill_in "spending[amount]", with: 14.444
-    select(category.id, from: "spending[category_id]")
+
+    fill_in "spending[name]", with: spending.name
+    fill_in "spending[amount]", with: spending.amount
+    select(spending.category_id, from: "spending[category_id]")
+    pp
     click_on "Provide spending"
-    expect(page).to have_link("Spending name")
-    expect(page).to have_link(category.name)
+
+    # expect(page).to have_link("Spending name")
+    expect(page).to have_link(spending.name)
+    expect(page).to have_link(spending.category.name)
   end
 
   scenario "user can delete spending" do
@@ -65,7 +70,9 @@ RSpec.feature "Users can manage spendings" do
     spending = create(:spending, user: user)
     sign_in(user.email, user.password)
 
+    puts current_url
     visit category_path(spending.category)
+    puts current_url
 
     expect(page).to have_content spending.category.name
   end

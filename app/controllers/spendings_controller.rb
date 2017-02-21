@@ -1,7 +1,7 @@
 class SpendingsController < ApplicationController
   def index
     @new_spending = Spending.new
-    @spendings = Spending.all.where(user_id: current_user.id)
+    @spendings = Spending.find_by(user_id: current_user.id)
     @spendings_grid = SpendingsGrid.new(params[:spendings_grid])
     respond_to do |f|
       f.html do

@@ -1,3 +1,5 @@
 <h3>Category: <%= @category.name %></h3>
 
+<%= render @spendings %>
+
 <%= link_to "Delete!", @category, method: :delete, data: { confirm: "Are you sure?" } %>
