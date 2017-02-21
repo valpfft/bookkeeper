@@ -1,10 +1,13 @@
 module Features
   module SessionHelpers
     def sign_in(email, password)
-      visit new_user_session_path
-      fill_in "Email", with: email
-      fill_in "Password", with: password
-      click_on"Log in"
+      visit("/")
+      click_link("Log In")
+      within("#sign_in_modal") do
+        fill_in("user[email]", with: email)
+        fill_in("user[password]", with: password)
+        click_button("Sign in")
+      end
     end
   end
 end

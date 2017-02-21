@@ -38,3 +38,8 @@
 /log/*
 /public/system
 /tags
+/GPATH
+/GRTAGS
+/GTAGS
+/db/pf_csv_from_g_docs/pf_Categories_2016.csv
+/db/pf_csv_from_g_docs/pf_Valik_Spendings_2016.csv

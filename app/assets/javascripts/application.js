@@ -14,5 +14,38 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
-//= require bootstrap-datetimepicker
+//= require moment
+//= require bootstrap-datepicker
 //= require_tree .
+
+function hideFilters(){
+  $('.hide-filters').hide();
+  $('.show-filters').show();
+  $('.panel-body').hide();
+}
+
+function showFilters(){
+  $('.hide-filters').show();
+  $('.show-filters').hide();
+  $('.panel-body').show();
+}
+
+// $(".list-group a.list-group-item").click(function () {
+//   $('.list-group > .active').removeClass('active');
+//   $(this).addClass('active');
+// });
+
+
+$(document).ready(function() {
+  $('[data-toggle=offcanvas]').click(function() {
+    $('.row-offcanvas').toggleClass('active');
+  });
+});
+
+$(document).ready(function(){
+  $('.datepicker').datepicker();
+});
+
+$(function () {
+  $("#modal").modal({show: false})
+});

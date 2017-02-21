@@ -1,0 +1,17 @@
+<%= simple_form_for @new_spending, html: { class: "form-inline" }, wrapper: :inline_form do |form| %>
+  <% form.error_notification  %>
+  <%= render "form", form: form %>
+  <div class="pull-right">
+    <%= form.submit "Provide spending", class: "btn btn-success" %>
+  </div>
+<% end %>
+
+<br />
+
+<div class="table-responsive">
+  <%= datagrid_table(@spendings_grid, html: { class: "table table-stiped table-bordered table-hover" } ) %>
+</div>
+
+<div class="text-center">
+  <%= paginate @spendings_grid.assets, theme: "twitter-bootstrap-3", pagination_class: "pagination-sm" %>
+</div>

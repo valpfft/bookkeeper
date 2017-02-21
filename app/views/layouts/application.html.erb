@@ -1,25 +1,38 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bookkeeper</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= content_for?(:title) ? yield(:title) : "Bookkeeper" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Bookkeeper" %>" />
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'true' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'true' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <header>
-      <%= render "layouts/header" %>
-    </header>
-    <main role="main">
-      <div class="container">
-        <%= render "layouts/messages" %>
-        <%= yield %>
+    <%= render "layouts/header" %>
+    <div class="row-offcanvas row-offcanvas-left">
+      <div id="sidebar" class="sidebar-offcanvas">
+        <div class="col-md-12">
+          <% if current_user  %>
+            <%= render "layouts/sidebar" %>
+          <% end %>
+        </div>
       </div>
-    </main>
+
+      <div id="main">
+        <div class="col-md-11">
+          <p class="visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas"><i class="glyphicon glyphicon-chevron-left"></i></button>
+          </p>
+          <div class="row">
+            <%= render "layouts/messages" %>
+            <%= render "layouts/sign_up_modal" %>
+            <%= render "layouts/sign_in_modal" %>
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div><!-- -/row-offcanvas -->
   </body>
 </html>

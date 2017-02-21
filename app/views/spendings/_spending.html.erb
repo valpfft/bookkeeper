@@ -1,0 +1,6 @@
+<p>
+  You paid <%= number_to_currency(spending.amount) %>
+  for <%= link_to spending.name, spending %>
+  (<%= link_to spending.category.name, spending.category %>)
+  on <%= spending.created_at.to_date %>.
+</p>

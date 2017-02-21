@@ -1,7 +1,7 @@
 // import CSS framework
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "bootstrap-datetimepicker";
+@import "bootstrap-datepicker3";
 
 /* all image responsive by default */
 img {
@@ -9,42 +9,191 @@ img {
     margin: 0 auto;
 }
 /* 'Home' nav. link */
-main {
-    @extend .container;
-    padding-bottom: 80px;
-    width: 100%;
-    margin-top: 60px;
+
+.navbar-brand {
+    font-size: 20px;
+    font-weight: bold;
+    position: absolute;
+    margin: auto;
+    margin-left: 0 !important;
     }
 
-section {
-    @extend .row;
-    margin-top: 20px;
-}
-
-.authform {
-    padding-top: 30px;
-    max-width: 320px;
-    margin: 0 auto;
-}
-
-.authform .right {
-    float: right !important;
-}
-
-.authform .button {
-    @extend .btn;
-    @extend .btn-primary;
-}
-
-.authform fieldset {
-    @extend .well;
-}
-#error_explanation {
-    @extend .alert;
-    @extend .alert-danger;
-}
 .button-xs {
     @extend .btn;
     @extend .btn-primary;
     @extend .btn-xs;
 }
+
+/* Datagrid */
+.datagrid-form {
+    background-color: transparent !important;
+}
+
+.datagrid-actions {
+    padding-left: 10px;
+    }
+
+a.hide-filters, a.show-filters{
+    color: white;
+    text-decoration: underline;
+    }
+
+.page-header {
+    margin-top: 0;
+    a.btn {
+        float: right;
+    }
+
+    a.btn + a.btn {
+        margin-right: 0;
+    }
+}
+
+.order {
+    display: inline;
+
+    a {
+        color: lighten($link-color, 15%);
+        &:hover {
+            color: $link-hover-color;
+        }
+
+        &.selected {
+            color: $link-color;
+            &:hover {
+                color: $link-hover-color;
+            }
+        }
+    }
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.panel {
+    .panel-title {
+        a {
+            color: $link-color !important;
+            margin: 0px 8px 0px 4px;
+        }
+    }
+
+    legend {
+        font-size: 1em;
+        font-weight: bold;
+    }
+
+    .filter-col {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    border: none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    margin-bottom: 5px;
+    margin-left: 0;
+}
+
+legend {
+    margin-top: 10px;
+}
+
+abbr {
+    text-decoration: none;
+    border: none !important;
+}
+
+label.checkbox input[type=checkbox] {
+    display: inline-block;
+    padding-right: 10px;
+}
+
+.inactive {
+    color: $gray-light;
+}
+
+.pagination {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+table.datagrid {
+    width: 100%;
+    margin-top: 20px;
+}
+
+
+/*  Sidebar */
+
+.list-group{
+    .list-group-item {
+        border-bottom-right-radius: 8px;
+        border-bottom-left-radius: 20px;
+    }
+}
+
+
+/*
+ * Off Canvas
+ * --------------------------------------------------
+ */
+
+@media screen and (max-width: 768px) {
+    .row-offcanvas {
+        position: relative;
+        -webkit-transition: all 0.25s ease-out;
+        -moz-transition: all 0.25s ease-out;
+        transition: all 0.25s ease-out;
+        width: calc(100% + 160px);
+    }
+
+    .row-offcanvas-left
+    {
+        left: -160px;
+    }
+
+    .row-offcanvas-left.active {
+        left: 0;
+    }
+
+    .sidebar-offcanvas {
+        position: absolute;
+        top: 0;
+    }
+    }
+
+#sidebar {
+    width: inherit;
+    min-width: 160px;
+    max-width: 160px;
+    float: left;
+    height: 100%;
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+    }
+
+body, html, .row-offcanvas {
+    height: 100%;
+    padding-top: 30px;
+}
+
+#main {
+    height: 100%;
+    overflow: auto;
+}
+
+// Devise styles
+.panel-boundary {
+    -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
+    -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
+    box-shadow: 1px 1px 2px 0 #d0d0d0;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    padding: 20px;
+    }

@@ -1,0 +1,29 @@
+<div class="modal fade" id="sign_up_modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h2 class="modal-title">Sign up</h2>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|  %>
+          <div class="form-inputs">
+              <%= f.input :email, required: true, autofocus: true, class: "form-control" %>
+              <%= f.input :name, required: true, class: "form-control" %>
+              <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), class: "form-control" %>
+              <%= f.input :password_confirmation, required: true, class: "form-control" %>
+          </div>
+
+          <div class="form-actions">
+            <%= f.button :submit, "Sign up", class: "btn btn-primary" %>
+          </div>
+          <% end %>
+      </div>
+
+      <div class="modal-footer">
+        <%= render "devise/shared/links" %>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
