@@ -1,5 +1,5 @@
 <p>
-  You paid <%= number_to_currency(spending.amount) %>
+  You paid <%= number_to_currency(spending.amount, unit: "zł", format: "%n %u") %>
   for <%= link_to spending.name, spending %>
   (<%= link_to spending.category.name, spending.category %>)
   on <%= spending.created_at.to_date %>.

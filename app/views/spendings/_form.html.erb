@@ -1,4 +1,8 @@
 <%= form.error_notification %>
+<div class="input-group date">
+  <%= form.text_field :created_at, label: false, as: :string, class: "form-control datepicker", placeholder: "(optional) Pick a date" %>
+  <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+</div>
 <%= form.input :name, autofocus: true, placeholder: "Name" %>
 <%= form.input :amount %>
 <%= form.association :category, collection: Category.all.where(user: current_user).order(:name), prompt: "Choose a category" %>

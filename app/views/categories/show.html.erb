@@ -1,5 +1,12 @@
 <h3>Category: <%= @category.name %></h3>
 
-<%= render @spendings %>
+<div class="row">
+  <div class="col-md-4">
+    <%= render @spendings %>
+  </div>
+  <div class="col-md-8">
+    <%= pie_chart @spendings_chart, height: "400px;" %>
+  </div>
+</div>
 
 <%= link_to "Delete!", @category, method: :delete, data: { confirm: "Are you sure?" } %>

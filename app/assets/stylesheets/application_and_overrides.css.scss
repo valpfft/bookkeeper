@@ -11,7 +11,7 @@ img {
 /* 'Home' nav. link */
 
 .navbar-brand {
-    font-size: 20px;
+    font-size: 25px;
     font-weight: bold;
     position: absolute;
     margin: auto;
@@ -22,6 +22,19 @@ img {
     @extend .btn;
     @extend .btn-primary;
     @extend .btn-xs;
+}
+
+
+.row {
+    margin-left: 0;
+    }
+
+.badge {
+    margin-left: 5px !important;
+    &:empty {
+        display: none;
+    }
+    background-color: #337ab7 !important;
 }
 
 /* Datagrid */
@@ -119,18 +132,13 @@ label.checkbox input[type=checkbox] {
     margin-bottom: 0px;
 }
 
-table.datagrid {
-    width: 100%;
-    margin-top: 20px;
-}
-
-
 /*  Sidebar */
 
 .list-group{
     .list-group-item {
         border-bottom-right-radius: 8px;
         border-bottom-left-radius: 20px;
+        font-size: 16px;
     }
 }
 
@@ -146,12 +154,12 @@ table.datagrid {
         -webkit-transition: all 0.25s ease-out;
         -moz-transition: all 0.25s ease-out;
         transition: all 0.25s ease-out;
-        width: calc(100% + 160px);
+        width: calc(100% + 300px);
     }
 
     .row-offcanvas-left
     {
-        left: -160px;
+        left: -300px;
     }
 
     .row-offcanvas-left.active {
@@ -166,8 +174,8 @@ table.datagrid {
 
 #sidebar {
     width: inherit;
-    min-width: 160px;
-    max-width: 160px;
+    min-width: 300px;
+    max-width: 300px;
     float: left;
     height: 100%;
     position: relative;

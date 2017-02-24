@@ -8,7 +8,10 @@ class CategoriesController < ApplicationController
 
   def show
     @category = find_category
-    @spendings = @category.spendings
+    @spendings = @category.spendings.last(20)
+    @spendings_chart =
+      Spending.all.
+        where(category_id: @category.id).group(:name).sum(:amount)
   end
 
   def create

@@ -1,10 +1,7 @@
-<%= simple_form_for @new_category do |f| %>
-  <div class="form-inputs">
-    <%= f.input :name, autofocus: true, class: "form-control", label: false, placeholder: "Category name" %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.submit "Add category", class: "btn btn-submit" %>
+<%= simple_form_for @new_category, html: { class: "form-inline" }, wrapper: :inline_form  do |f| %>
+    <%= f.input :name, autofocus: true, label: false, placeholder: "Category name" %>
+  <div class="pull-right">
+    <%= f.submit "Add category", class: "btn btn-success" %>
   </div>
 <% end %>
 

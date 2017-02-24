@@ -1,1 +1,4 @@
-<p><%= link_to category.name, category %></p>
+<%= link_to category, class: "btn btn-lg btn-default" do %>
+  <%= category.name %>
+  <span class="badge"><%= spendings_sum_all_month(category) %></span>
+<% end %>

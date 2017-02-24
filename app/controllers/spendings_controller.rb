@@ -1,8 +1,10 @@
 class SpendingsController < ApplicationController
   def index
     @new_spending = Spending.new
-    @spendings = Spending.find_by(user_id: current_user.id)
-    @spendings_grid = SpendingsGrid.new(params[:spendings_grid])
+    @spendings = Spending.find_by(user: current_user)
+    @spendings_grid = SpendingsGrid.new(params[:spendings_grid]) do |scope|
+      policy_scope(scope)
+    end
     respond_to do |f|
       f.html do
         @spendings_grid.scope { |scope| scope.page(params[:page]) }

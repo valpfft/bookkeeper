@@ -5,7 +5,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem "cocoon", "~> 1.2", ">= 1.2.9"
 gem "coffee-rails", "~> 4.2"
 gem "jbuilder", "~> 2.5"
 gem "jquery-rails"
@@ -16,11 +15,16 @@ gem "sass-rails", "~> 5.0"
 gem "simple_form", "~> 3.4"
 gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
+
 # auth and role
 gem "devise", "~> 4.2"
 gem "pundit", "~> 1.1"
+
 # data processing
+gem "chartkick", "~> 2.2", ">= 2.2.2"
+gem "cocoon", "~> 1.2", ">= 1.2.9"
 gem "datagrid", "~> 1.5", ">= 1.5.1"
+gem "groupdate", "~> 3.2"
 
 # design
 gem "bootstrap-datepicker-rails", "~> 1.6", ">= 1.6.4.1"
@@ -56,6 +60,3 @@ group :test do
   gem "rspec-rails"
   gem "shoulda-matchers"
 end
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]

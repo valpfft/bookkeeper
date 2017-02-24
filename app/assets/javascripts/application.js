@@ -14,10 +14,12 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
-//= require moment
 //= require bootstrap-datepicker
+//= require Chart.bundle
+//= require chartkick
 //= require_tree .
 
+//TODO extract to users.coffee
 function hideFilters(){
   $('.hide-filters').hide();
   $('.show-filters').show();
@@ -30,22 +32,18 @@ function showFilters(){
   $('.panel-body').show();
 }
 
-// $(".list-group a.list-group-item").click(function () {
-//   $('.list-group > .active').removeClass('active');
-//   $(this).addClass('active');
-// });
-
-
-$(document).ready(function() {
+$(document).on("turbolinks:load", function() {
   $('[data-toggle=offcanvas]').click(function() {
     $('.row-offcanvas').toggleClass('active');
   });
-});
 
-$(document).ready(function(){
-  $('.datepicker').datepicker();
-});
+  $(".datepicker").datepicker({
+    autoclose: true,
+    format: "dd/mm/yyyy",
+    startDate: 0
+  });
 
-$(function () {
-  $("#modal").modal({show: false})
+  $("#modal").modal({
+    show: false
+  })
 });
