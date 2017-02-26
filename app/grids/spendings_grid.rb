@@ -10,7 +10,9 @@ class SpendingsGrid
   filter(:category)
 
   column(:amount) do |spending|
-    ActionController::Base.helpers.number_to_currency(spending.amount, unit: "zł", format: "%n %u")
+    ActionController::Base.helpers.number_to_currency(spending.amount,
+                                                      unit: "zł",
+                                                      format: "%n %u")
   end
   column(:name, html: true) do |spending|
     link_to spending.name, spending_path(spending)

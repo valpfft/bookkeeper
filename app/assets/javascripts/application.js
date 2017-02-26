@@ -40,7 +40,10 @@ $(document).on("turbolinks:load", function() {
   $(".datepicker").datepicker({
     autoclose: true,
     format: "dd/mm/yyyy",
-    startDate: 0
+    clearBtn: true,
+    todayHighlight: true,
+    todayBtn: "linked",
+    weekStart: 1
   });
 
   $("#modal").modal({

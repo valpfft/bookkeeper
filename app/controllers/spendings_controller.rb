@@ -63,7 +63,7 @@ class SpendingsController < ApplicationController
   def spending_params
     params.
       require(:spending).
-      permit(:name, :amount, :category_id).
+      permit(:name, :amount, :category_id, :created_at).
       merge(user: current_user)
   end
 end

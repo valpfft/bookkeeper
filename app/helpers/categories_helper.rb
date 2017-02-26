@@ -5,6 +5,6 @@ module CategoriesHelper
         where(created_at: Time.now.all_month).
         sum(:amount)
     end
-    sum_this_month(category).positive? ? sum_this_month(category).round() : ""
+    sum_this_month(category).positive? ? sum_this_month(category).round : ""
   end
 end
