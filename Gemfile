@@ -25,6 +25,7 @@ gem "chartkick", "~> 2.2", ">= 2.2.2"
 gem "cocoon", "~> 1.2", ">= 1.2.9"
 gem "datagrid", "~> 1.5", ">= 1.5.1"
 gem "groupdate", "~> 3.2"
+gem "hightop"
 
 # design
 gem "bootstrap-datepicker-rails", "~> 1.6", ">= 1.6.4.1"

@@ -43,8 +43,9 @@ $(document).on("turbolinks:load", function() {
     clearBtn: true,
     todayHighlight: true,
     todayBtn: "linked",
-    weekStart: 1
-  });
+    weekStart: 1,
+    disableTouchKeyboard: true,
+  })
 
   $("#modal").modal({
     show: false

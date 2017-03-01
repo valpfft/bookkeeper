@@ -1,3 +1,5 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+ready = ->
+  $('#year-select').on 'change', ->
+    window.location = "statistics?year=#{@.selectedOptions[0].value}"
+$(document).ready(ready)
+$(document).on('turbolinks:load', ready)

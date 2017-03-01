@@ -130,6 +130,8 @@ GEM
     guard-rubocop (1.2.0)
       guard (~> 2.0)
       rubocop (~> 0.20)
+    hightop (0.1.4)
+      activerecord
     i18n (0.8.0)
     jbuilder (2.6.1)
       activesupport (>= 3.0.0, < 5.1)
@@ -326,6 +328,7 @@ DEPENDENCIES
   guard-rails
   guard-rspec
   guard-rubocop
+  hightop
   jbuilder (~> 2.5)
   jquery-rails
   kaminari (~> 1.0, >= 1.0.1)

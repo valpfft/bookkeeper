@@ -1,0 +1,42 @@
+<% if @months.present? %>
+  <div class="row">
+    <div class='navigation-arrows'>
+
+      <div class="col-md-3">
+        <% if @months[:last][:number].positive? %>
+          <%= link_to url_for(action_params + "?month=" + @months[:last][:number].to_s + "&year=" + @year.to_s), class: "btn btn-info" do %>
+            <i class="fa fa-hand-o-left fa-lg" aria-hidden="true"></i> <%= @months[:last][:name] %>
+          <% end %>
+        <% else %>
+          <%= link_to url_for(action_params + "?month=12&year=" + @prev_year.to_s), class: "btn btn-info" do %>
+            December <i class="fa fa-hand-o-left fa-lg" aria-hidden="true"></i>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <%= @months[:current][:name] + " " + @year.to_s %>
+          </div>
+          <ul class="list-group">
+            <%= render partial: "partial/stats" %>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-3 text-right">
+        <% if @months[:next][:number] < 13 %>
+          <%= link_to url_for(action_params + "?month=" + @months[:next][:number].to_s + "&year=" + @year.to_s), class: "btn btn-info" do %>
+            <%= @months[:next][:name] %> <i class='fa fa-hand-o-right fa-lg' aria-hidden='true'></i>
+          <% end %>
+        <% else %>
+          <%= link_to url_for(action_params + "?month=1&year=" + @next_year.to_s), class: "btn btn-info" do %>
+            January <i class="fa fa-hand-o-right fa-lg" aria-hidden="true"></i>
+          <% end %>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+<% end %>

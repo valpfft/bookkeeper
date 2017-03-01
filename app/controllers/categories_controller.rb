@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  include Calendar
   before_action :authenticate_user!
 
   def index
@@ -7,11 +8,32 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    @year = params[:year] ? params[:year].to_i : Time.now.year
+    @next_year = @year.to_i + 1
+    @prev_year = @year.to_i - 1
+    @months = months params
     @category = find_category
-    @spendings = @category.spendings.last(20)
+    @spendings =
+      @category.spendings.
+        where("extract(year from created_at) = ?", @year).
+        where("extract(month from created_at) = ?", @months[:current][:number])
     @spendings_chart =
       Spending.all.
         where(category_id: @category.id).group(:name).sum(:amount)
+    @total_spendings_this_month =
+      @category.spendings.
+        where("extract(year from created_at) = ?", @year).
+        where("extract(month from created_at) = ?", @months[:current][:number]).
+        sum(:amount)
+    @count_spendings_this_month =
+      @category.spendings.
+        where("extract(year from created_at) = ?", @year).
+        where("extract(month from created_at) = ?", @months[:current][:number]).
+        count
+    @stats = {
+      "Total spending's in this category": @total_spendings_this_month.to_s,
+              "Total items in this category": @count_spendings_this_month.to_s,
+    }
   end
 
   def create

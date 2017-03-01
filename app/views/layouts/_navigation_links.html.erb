@@ -7,14 +7,14 @@
     </a>
     <ul class="dropdown-menu" role="menu">
       <% if current_user.admin? %>
-        <li><%= link_to "Users", users_path, class: 'btn btn-lg' %></li>
+        <li><%= link_to "<i class='fa fa-address-book'></i> Users".html_safe, users_path, class: 'btn btn-lg' %></li>
       <% end %>
-      <li><%= link_to 'Profile', edit_user_registration_path, class: 'btn btn-lg' %></li>
+      <li><%= link_to "<i class='fa fa-address-card'></i> Profile".html_safe, edit_user_registration_path, class: 'btn btn-lg' %></li>
       <li role="separator" class="divider"></li>
-      <li><%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'btn btn-lg' %></li>
+      <li><%= link_to "<i class='fa fa-sign-out'></i> Log out".html_safe, destroy_user_session_path, method: :delete, class: 'btn btn-lg' %></li>
     </ul>
   </li>
 <% else %>
-  <li><%= link_to("Log In", "#sign_in", class: "btn btn-lg", data: { toggle: "modal", target: "#sign_in_modal" }) %></li>
-  <li><%= link_to("Sign Up", "#sign_up", class: "btn btn-lg", data: { toggle: "modal", target: "#sign_up_modal" }) %></li>
+  <li><%= link_to("<i class='fa fa-sign-in'></i> Log In".html_safe, "#sign_in", class: "btn btn-lg", data: { toggle: "modal", target: "#sign_in_modal" }) %></li>
+  <li><%= link_to("<i class='fa fa-user-plus'></i> Sign Up".html_safe, "#sign_up", class: "btn btn-lg", data: { toggle: "modal", target: "#sign_up_modal" }) %></li>
 <% end %>

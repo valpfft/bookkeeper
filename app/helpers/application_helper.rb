@@ -16,4 +16,12 @@ module ApplicationHelper
   def resource_class
     devise_mapping.to
   end
+
+  def action_params
+    if params[:action] == "show"
+      params[:id]
+    else
+      params[:controller]
+    end
+  end
 end
