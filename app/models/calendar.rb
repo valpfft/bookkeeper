@@ -3,7 +3,7 @@ module Calendar
     month = params[:month].present? ? params[:month].to_i : Time.now.month
     {
       last: {
-        name: Date::MONTHNAMES[month -1],
+        name: Date::MONTHNAMES[month - 1],
         number: month - 1,
       },
       current: {

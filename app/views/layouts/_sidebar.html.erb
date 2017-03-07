@@ -1,10 +1,8 @@
-
-<div class="container-fluid">
-  <div class="row">
-    <ul class="nav nav-pills flex-column list-group">
-        <a><%= link_to "<i class='fa fa-tags fa-lg'></i> Categories".html_safe, categories_path, class: "list-group-item #{active_class('categories')}" %></a>
-        <a><%= link_to "<i class='fa fa-list-alt fa-lg'></i> Spendings".html_safe, spendings_path, class: "list-group-item #{active_class('spendings')}" %></a>
-        <a><%= link_to "<i class='fa fa-bar-chart fa-lg'></i> Statistics".html_safe, statistics_path, class: "list-group-item #{active_class('statistics')}" %></a>
-    </ul>
-  </div>
+<div class="row">
+  <ul class="nav nav-pills flex-column list-group">
+    <a><%= link_to "<i class='fa fa-home fa-lg'></i> Dashboard".html_safe, root_path, class: "list-group-item #{active_class('categories')}" %></a>
+    <a><%= link_to "<i class='fa fa-tags fa-lg'></i> Categories".html_safe, categories_path, class: "list-group-item #{active_class('categories')}" %></a>
+    <a><%= link_to "<i class='fa fa-list-alt fa-lg'></i> Spendings".html_safe, spendings_path, class: "list-group-item #{active_class('spendings')}" %></a>
+    <a><%= link_to "<i class='fa fa-bar-chart fa-lg'></i> Statistics".html_safe, statistics_path, class: "list-group-item #{active_class('statistics')}" %></a>
+  </ul>
 </div>

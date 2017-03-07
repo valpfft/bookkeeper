@@ -1,4 +1,6 @@
 class SpendingsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @new_spending = Spending.new
     @spendings = Spending.find_by(user: current_user)

@@ -8,7 +8,7 @@ RSpec.feature "Users can manage categories" do
     visit "/categories"
     fill_in "category[name]", with: "new unique category"
     click_button("Add category")
-    expect(page).to have_link("new unique category")
+    expect(page).to have_button("new unique category")
   end
 
   scenario "user cannot create two categories with same names" do

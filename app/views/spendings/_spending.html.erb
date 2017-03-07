@@ -1,6 +1,10 @@
-<p>
-  You paid <%= number_to_currency(spending.amount, unit: "zł", format: "%n %u") %>
-  for <%= link_to spending.name, spending %>
-  (<%= link_to spending.category.name, spending.category %>)
-  on <%= spending.created_at.to_date %>.
-</p>
+<tr>
+  <td><%= number_to_currency(spending.amount, locale: :pl) %></td>
+  <td class="span4"><%= spending.name %></td>
+  <td class="span4"><%= spending.category_name %></td>
+  <td class="span2"><%= spending.created_at.strftime("%A, %b %-d") %></td>
+  <td class="span1">
+    <%= link_to "<i class='fa fa-pencil'></i>".html_safe, edit_spending_path(spending) %>
+    <%= link_to "<i class='fa fa-trash'></i>".html_safe, spending, method: :delete, data: { confirm: "Are you sure?" }, class: "pull-right" %>
+  </td>
+</tr>

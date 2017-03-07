@@ -13,23 +13,25 @@
 </h3>
 
 <%= render partial: "partial/head" %>
-<div class="col-md-12 text-center">
-  <h4 class="text-center">Spendings by category</h4>
-  <%#= pie_chart @categories_chart, adapter: "highcharts", height: "450px;" %>
-  <%= pie_chart @categories_chart %>
-</div>
-</div>
-<br />
-<div class="row">
-  <div class="col-md-6">
-    <h4 class="text-center">Spendings by date</h4>
-    <%= line_chart current_user.spendings.group(:created_at).sum(:amount) %>
+<div class="container" id="features">
+  <div class="row">
+    <div class="col-md-12 feature jumbotron">
+      <h3>Spendings by category</h3>
+      <div class="title_border"></div>
+      <%= pie_chart @categories_chart, height: "450px;", legend: "bottom" %>
+    </div>
   </div>
-  <div class="col-md-6">
-    <h4 class="text-center">Spendings by day of week</h4>
-    <%#= bar_chart current_user.spendings.group_by_day_of_week(:created_at, format: "%a").count %>
-    <%#= bar_chart Category.group(:name).spendings.group_by_day_of_week(:created_at).sum(:amount)  %>
-    <%#= line_chart current_user.spendings.group(:created_at).sum(:value) %>
+  <br />
+  <div class="row">
+    <div class="col-md-6 feature jumbotron">
+      <h3>Spendings by date</h3>
+      <div class="title_border"></div>
+      <%= line_chart @spendings_by_date %>
+    </div>
+    <div class="col-md-6 feature jumbotron">
+      <h3>Spendings by day of week</h3>
+      <div class="title_border"></div>
+      <%= column_chart @spendings_by_day_of_week %>
+    </div>
   </div>
-</div>
 <br />

@@ -1,0 +1,117 @@
+<!-- Daily spendings -->
+<div id="dailySpendingsModal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3 class="modal-title text-center">Today</h3>
+      </div>
+      <div class="modal-body">
+        <table class="table" id="table_modal">
+          <thead>
+            <tr>
+              <th>Amount</th>
+              <th class="span4">Name</th>
+              <th class="span3">Category</th>
+              <th class="span2">Date</th>
+              <th class="span1"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render partial: "spendings/spending", collection: @daily_spendings.order(:created_at) %>
+            <tr class="info">
+              <td class="span1"><h4>Total:</h4></td>
+              <td><h4><%= number_to_currency(@daily_spendings.sum(:amount), locale: :pl)%></h4></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Weekly spendings -->
+<div id="weeklySpendingsModal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3 class="modal-title text-center">
+          <%= Time.zone.now.beginning_of_week.strftime("%b %d") + " - " + Time.zone.now.end_of_week.strftime("%b %d") %>
+        </h3>
+      </div>
+      <div class="modal-body">
+        <table class="table" id="table_modal">
+          <thead>
+            <tr>
+              <th>Amount</th>
+              <th class="span4">Name</th>
+              <th class="span3">Category</th>
+              <th class="span2">Date</th>
+              <th class="span1"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render partial: "spendings/spending", collection: @weekly_spendings.order(:created_at) %>
+            <tr class="info">
+              <td class="span1"><h4>Total:</h4></td>
+              <td><h4><%= number_to_currency(@weekly_spendings.sum(:amount), locale: :pl)%></h4></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Monthly spendings -->
+<div id="monthlySpendingsModal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3 class="modal-title text-center">
+          <%= Date.today.strftime("%B %Y") %>
+        </h3>
+      </div>
+      <div class="modal-body">
+        <table class="table" id="table_modal">
+          <thead>
+            <tr>
+              <th>Amount</th>
+              <th class="span4">Name</th>
+              <th class="span3">Category</th>
+              <th class="span2">Date</th>
+              <th class="span1"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render partial: "spendings/spending", collection: @monthly_spendings.order(:created_at) %>
+            <tr class="info">
+              <td class="span1"><h4>Total:</h4></td>
+              <td><h4><%= number_to_currency(@monthly_spendings.sum(:amount), locale: :pl)%></h4></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

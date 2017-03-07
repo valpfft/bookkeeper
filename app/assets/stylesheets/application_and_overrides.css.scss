@@ -142,49 +142,13 @@ label.checkbox input[type=checkbox] {
     }
 }
 
-
-/*
- * Off Canvas
- * --------------------------------------------------
- */
-
-@media screen and (max-width: 768px) {
-    .row-offcanvas {
-        position: relative;
-        -webkit-transition: all 0.25s ease-out;
-        -moz-transition: all 0.25s ease-out;
-        transition: all 0.25s ease-out;
-        width: calc(100% + 300px);
-    }
-
-    .row-offcanvas-left
-    {
-        left: -300px;
-    }
-
-    .row-offcanvas-left.active {
-        left: 0;
-    }
-
-    .sidebar-offcanvas {
-        position: absolute;
-        top: 0;
-    }
-    }
-
 #sidebar {
-    width: inherit;
-    min-width: 300px;
-    max-width: 300px;
-    float: left;
     height: 100%;
     position: relative;
-    overflow-y: auto;
-    overflow-x: hidden;
+    margin-top: 20px;
     }
 
 body, html, .row-offcanvas {
-    height: 100%;
     padding-top: 30px;
 }
 
@@ -205,3 +169,56 @@ body, html, .row-offcanvas {
     margin-bottom: 15px;
     padding: 20px;
     }
+
+// root page
+#features {
+    margin-top: 20px;
+}
+
+.feature, .feature i, .feature h3, .feature .tittle_border {
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+}
+
+.feature {
+    background: #ffffff;
+    text-align: center;
+    padding: 20px;
+    border: solid 1px #cccccc;
+}
+
+.feature p {
+    margin-top: 20px;
+}
+
+.feature i {
+    font-size: 80px;
+    color: #FFFFFF;
+    background: #1E825F;
+}
+
+.feature h3 {
+    color: #1E825F;
+}
+
+.feature:hover i{
+    color: #1E825F;
+    border-color: #1E825F;
+    background: #FFFFFF;
+}
+
+.feature:hover .title_border {
+    background-color: #1E825F;
+    width: 50%;
+}
+
+.feature .title_border {
+    width: 0;
+    height: 3px;
+    background: #1E825F;
+    margin: 0 auto;
+    margin-top: 12px;
+    margin-bottom: 8px;
+}

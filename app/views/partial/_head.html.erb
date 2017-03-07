@@ -17,9 +17,16 @@
       <div class="col-md-6">
         <div class="panel panel-default">
           <div class="panel-heading">
-            <%= @months[:current][:name] + " " + @year.to_s %>
+            <h2 class="text-center">
+            <% if @category %>
+              <%= @category.name + " " + @months[:current][:name] + " " + @year.to_s %>
+            <% else %>
+              <%= @months[:current][:name] + " " + @year.to_s %>
+            <% end %>
+            </h2>
           </div>
-          <ul class="list-group">
+          <div class="title-border"></div>
+          <ul class="list-group text-center">
             <%= render partial: "partial/stats" %>
           </ul>
         </div>

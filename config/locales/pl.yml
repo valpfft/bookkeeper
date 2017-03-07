@@ -1,0 +1,7 @@
+  pl:
+    number:
+      currency:
+        format:
+          unit: 'zł'
+          precision: 2
+          format: '%n %u'

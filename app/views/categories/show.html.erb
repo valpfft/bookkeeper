@@ -1,12 +1,17 @@
 <%= render partial: "partial/head" %>
-
-<h3>Category: <%= @category.name %></h3>
-
+<div class="container" id="features">
 <div class="row">
   <div class="col-md-4">
-    <%= render @spendings %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <h3>Latest items in this category</h3>
+        </tr>
+      </thead>
+        <%= render @spendings %>
+    </table>
   </div>
-  <div class="col-md-8">
+  <div class="col-md-8 feature jumbotron">
     <%= pie_chart @spendings_chart, height: "400px;" %>
   </div>
 </div>

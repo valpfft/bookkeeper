@@ -1,0 +1,5 @@
+<%= simple_form_for @category do |f| %>
+  <%= f.label "Edit category name" %>
+  <%= f.input :name, label: false, autofocus: true %>
+  <%= f.submit "Update category", class: "btn btn-default" %>
+<% end %>

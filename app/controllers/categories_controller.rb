@@ -5,6 +5,10 @@ class CategoriesController < ApplicationController
   def index
     @categories = Category.all.where(user: current_user)
     @new_category = Category.new
+    respond_to do |format|
+      format.html
+      format.json { render json: @autocomplete.map(&:name) }
+    end
   end
 
   def show
@@ -32,7 +36,7 @@ class CategoriesController < ApplicationController
         count
     @stats = {
       "Total spending's in this category": @total_spendings_this_month.to_s,
-              "Total items in this category": @count_spendings_this_month.to_s,
+      "Total items in this category": @count_spendings_this_month.to_s,
     }
   end
 
@@ -44,6 +48,10 @@ class CategoriesController < ApplicationController
     end
 
     redirect_to categories_path
+  end
+
+  def edit
+    @category = find_category
   end
 
   def destroy

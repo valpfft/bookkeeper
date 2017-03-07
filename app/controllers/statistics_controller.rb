@@ -1,5 +1,6 @@
 class StatisticsController < ApplicationController
   include Calendar
+  before_action :authenticate_user!
 
   def index
     @year = params[:year] ? params[:year].to_i : Time.now.year
@@ -21,11 +22,24 @@ class StatisticsController < ApplicationController
       current_user.categories.
         group(:name).joins(:spendings).
         where("extract(year from spendings.created_at) = ?", @year).
-        where("extract(month from spendings.created_at) = ?", @months[:current][:number]).
+        where("extract(month from spendings.created_at) = ?",
+              @months[:current][:number]).
         sum(:amount)
+    @spendings_by_day_of_week =
+      Spending.
+        where("extract(year from created_at) = ?", @year).
+        where("extract(month from created_at) = ?",
+              @months[:current][:number]).
+        group_by_day_of_week(:created_at, format: "%a").sum(:amount)
+    @spendings_by_date =
+      Spending.
+        where("extract(year from created_at) = ?", @year).
+        where("extract(month from created_at) = ?",
+              @months[:current][:number]).
+        group(:created_at).sum(:amount)
     @stats = {
       "Total spending's": @total_spendings_this_month.to_s,
-              "Total items": @count_spendings_this_month.to_s,
+      "Total items": @count_spendings_this_month.to_s,
     }
   end
 end

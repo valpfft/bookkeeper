@@ -27,3 +27,9 @@ en:
     formats:
       default: "%d%m%Y"
       long: ! "%d %B, %Y"
+  number:
+    currency:
+      format:
+        format: "%n %u"
+        unit: "USD"
+        precision: 2
