@@ -33,19 +33,15 @@ function showFilters(){
 }
 
 $(document).on("turbolinks:load", function() {
-  $('[data-toggle=offcanvas]').click(function() {
-    $('.row-offcanvas').toggleClass('active');
-  });
-
   $(".datepicker").datepicker({
     autoclose: true,
-    format: "dd/mm/yyyy",
+    format: "dd-mm-yyyy",
     clearBtn: true,
     todayHighlight: true,
     todayBtn: "linked",
     weekStart: 1,
     disableTouchKeyboard: true,
-  })
+  }).datepicker("setDate", "0");
 
   $("#modal").modal({
     show: false

@@ -2,7 +2,7 @@ class SpendingsGrid
   include Datagrid
 
   scope do
-    Spending
+    Spending.order("spendings.created_at desc")
   end
 
   filter(:amount, :float, range: true)
@@ -21,7 +21,7 @@ class SpendingsGrid
     link_to spending.category.name, spending.category
   end
   column(:created_at, header: "Date") do |spending|
-    spending.created_at.to_date
+    spending.created_at.strftime("%d-%m-%Y")
   end
   column(:actions, header: "Settings", html: true) do |spending|
     link_to(icon("trash"), spending_path(spending),
