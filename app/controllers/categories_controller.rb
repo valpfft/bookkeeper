@@ -23,7 +23,10 @@ class CategoriesController < ApplicationController
         where("extract(month from created_at) = ?", @months[:current][:number])
     @spendings_chart =
       Spending.all.
-        where(category_id: @category.id).group(:name).sum(:amount)
+        where(category_id: @category.id).
+        where("extract(year from created_at) = ?", @year).
+        where("extract(month from created_at) = ?", @months[:current][:number]).
+        group(:name).sum(:amount)
     @total_spendings_this_month =
       @category.spendings.
         where("extract(year from created_at) = ?", @year).

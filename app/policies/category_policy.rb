@@ -1,2 +1,2 @@
-class CategoryPolicy < ApplicationPolicy
+class CategoryPolicy
 end
