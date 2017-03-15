@@ -46,7 +46,7 @@ RSpec.feature "Users sees overview on root_page" do
       expect(page).to have_content(spending2.amount)
       expect(page).to have_content(spending2.name)
       expect(page).to have_content(spending2.category_name)
-      expect(page).to have_content(spending2.created_at.strftime("%A, %b %-d"))
+      expect(page).to have_content(spending2.created_at.strftime("%d-%m-%Y"))
     end
   end
 
@@ -78,12 +78,12 @@ RSpec.feature "Users sees overview on root_page" do
       expect(page).to have_content(spending1.amount)
       expect(page).to have_content(spending1.name)
       expect(page).to have_content(spending1.category_name)
-      expect(page).to have_content(spending1.created_at.strftime("%A, %b %-d"))
+      expect(page).to have_content(spending1.created_at.strftime("%d-%m-%Y"))
 
       expect(page).to have_content(spending2.amount)
       expect(page).to have_content(spending2.name)
       expect(page).to have_content(spending2.category_name)
-      expect(page).to have_content(spending2.created_at.strftime("%A, %b %-d"))
+      expect(page).to have_content(spending2.created_at.strftime("%d-%m-%Y"))
 
       expect(page).to have_content(spending1.amount + spending2.amount)
     end
@@ -117,12 +117,12 @@ RSpec.feature "Users sees overview on root_page" do
       expect(page).to have_content(spending1.amount)
       expect(page).to have_content(spending1.name)
       expect(page).to have_content(spending1.category_name)
-      expect(page).to have_content(spending1.created_at.strftime("%A, %b %-d"))
+      expect(page).to have_content(spending1.created_at.strftime("%d-%m-%Y"))
 
       expect(page).to have_content(spending2.amount)
       expect(page).to have_content(spending2.name)
       expect(page).to have_content(spending2.category_name)
-      expect(page).to have_content(spending2.created_at.strftime("%A, %b %-d"))
+      expect(page).to have_content(spending2.created_at.strftime("%d-%m-%Y"))
 
       expect(page).to have_content(spending1.amount + spending2.amount)
     end

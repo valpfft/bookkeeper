@@ -57,6 +57,18 @@ class CategoriesController < ApplicationController
     @category = find_category
   end
 
+  def update
+    category = find_category
+
+    if category.update(category_params)
+      redirect_to({ action: "index" },
+                   notice: "#{category.name} was successfully updated.")
+    else
+      redirect_to({ action: "edit" },
+                   alert: category.errors.full_messages.join(", "))
+    end
+  end
+
   def destroy
     @category = find_category
     @category.destroy
