@@ -28,7 +28,7 @@ class SpendingsController < ApplicationController
     spending = Spending.new(spending_params)
 
     if !spending.save
-      flash[:notice] = spending.errors.full_messages.join(", ").to_s
+      flash[:alert] = spending.errors.full_messages.join(", ").to_s
     end
 
     redirect_to spendings_path
