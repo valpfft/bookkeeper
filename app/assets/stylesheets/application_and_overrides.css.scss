@@ -3,20 +3,18 @@
 @import "bootstrap";
 @import "bootstrap-datepicker3";
 
-/* all image responsive by default */
-img {
-    @extend .img-responsive;
-    margin: 0 auto;
-}
 /* 'Home' nav. link */
 
 .navbar-brand {
-    font-size: 25px;
+    font-family: DejaVu Math Tex Gyre;
+    /*     font-family: Open Sans; */
+    font-size: 22px;
     font-weight: bold;
     position: absolute;
     margin: auto;
     margin-left: 0 !important;
     }
+
 
 .row {
     margin-left: 0;
@@ -31,13 +29,6 @@ img {
 }
 
 /* Datagrid */
-.datagrid-form {
-    background-color: transparent !important;
-}
-
-.datagrid-actions {
-    padding-left: 10px;
-    }
 
 a.hide-filters, a.show-filters{
     color: white;
@@ -48,10 +39,6 @@ a.hide-filters, a.show-filters{
     margin-top: 0;
     a.btn {
         float: right;
-    }
-
-    a.btn + a.btn {
-        margin-right: 0;
     }
 }
 
@@ -78,22 +65,6 @@ a:hover {
 }
 
 .panel {
-    .panel-title {
-        a {
-            color: $link-color !important;
-            margin: 0px 8px 0px 4px;
-        }
-    }
-
-    legend {
-        font-size: 1em;
-        font-weight: bold;
-    }
-
-    .filter-col {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
 
     border: none;
     box-shadow: none;
@@ -102,22 +73,9 @@ a:hover {
     margin-left: 0;
 }
 
-legend {
-    margin-top: 10px;
-}
-
 abbr {
     text-decoration: none;
     border: none !important;
-}
-
-label.checkbox input[type=checkbox] {
-    display: inline-block;
-    padding-right: 10px;
-}
-
-.inactive {
-    color: $gray-light;
 }
 
 .pagination {
@@ -141,7 +99,7 @@ label.checkbox input[type=checkbox] {
     margin-top: 20px;
     }
 
-body, html, .row-offcanvas {
+body, html {
     padding-top: 30px;
 }
 
@@ -150,7 +108,7 @@ body, html, .row-offcanvas {
     overflow: auto;
 }
 
-// Devise styles
+/* Devise styles */
 .panel-boundary {
     -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
     -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
@@ -163,12 +121,12 @@ body, html, .row-offcanvas {
     padding: 20px;
     }
 
-// root page
+/* root page */
 #features {
     margin-top: 20px;
 }
 
-.feature, .feature i, .feature h3, .feature .tittle_border {
+.feature, .feature i, .feature h3 {
     -webkit-transition: all 1s ease-in-out;
     -moz-transition: all 1s ease-in-out;
     -o-transition: all 1s ease-in-out;
