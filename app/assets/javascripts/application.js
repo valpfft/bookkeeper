@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require bootstrap-datepicker
+//= require selectize
 //= require Chart.bundle
 //= require chartkick
 //= require_tree .

@@ -10,4 +10,4 @@
 
 <%= form.input :name, autofocus: true, placeholder: "Name" %>
 <%= form.input :amount %>
-<%= form.association :category, collection: Category.all.where(user: current_user).order(:name), prompt: "Choose a category" %>
+<%= form.association :category, collection: Category.all.where(user: current_user).order(:name), input_html: { 'data-selectize': true, placeholder: "Choose a category"} %>
